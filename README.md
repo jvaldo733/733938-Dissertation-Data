@@ -163,7 +163,7 @@ rural_data <- all_waves %>%
 trend_model <- lm(share_wage ~ year, data = rural_data, weights = wt)
 summary(trend_model)
 
-# Do the same for your other shares, to see which are actually trending
+# Do the same for other shares, to see which are actually trending
 # vs. roughly flat over time
 summary(lm(share_agri ~ year, data = rural_data, weights = wt))
 summary(lm(share_transfer ~ year, data = rural_data, weights = wt))
@@ -239,6 +239,3 @@ cat("Transfer: coef =", coef(m_transfer_no2020)["year"],
 
 cat("\nN full:", nrow(rural_data), " N excl. 2020:", nrow(rural_data_no2020), "\n")
 
-# Expected output (verified via Python cross-check):
-#  FULL:        wage coef=0.00497 p<0.001 | agri coef=0.00007 p=0.373 | transfer coef=-0.00261 p<0.001
-#  EXCL. 2020:  wage coef=0.00485 p<0.001 | agri coef=0.00003 p=0.756 | transfer coef=-0.00238 p<0.001
